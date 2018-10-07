@@ -29,18 +29,19 @@ int main() {
         }
       }
       if (needH == -2) continue;
-      // for (int i = 0; i < N; i++) {
-      //   if (h.at(i) == 0) {
-      //     int dist = abs(posY - y.at(i)) + abs(posX - x.at(i));
-      //     if (needH > dist) {
-      //       needH = -2;
-      //       break;
-      //     }
-      //   }
-      // }
-      // if (needH == -2) continue;
+      for (int i = 0; i < N; i++) {
+        if (h.at(i) == 0) {
+          int dist = abs(posY - y.at(i)) + abs(posX - x.at(i));
+          if (needH > dist) {
+            needH = -2;
+            break;
+          }
+        }
+      }
+      if (needH == -2) continue;
       cout << posX << " " << posY << " " << needH << endl;
       return 0;
     }
   }
 }
+
