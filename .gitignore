@@ -34,4 +34,6 @@
 
 .vscode/
 a.out.dSYM/
+stdin.txt
+test.cpp
 
