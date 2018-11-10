@@ -2,7 +2,6 @@
 
 ## Imcomplete
 #### ABC
-- 104 C
 
 #### ARC
 - 061 C
