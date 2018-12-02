@@ -23,7 +23,7 @@ int dy8[8] = { -1, 0, 0, 1, -1, -1, 1, 1 };
 int main() {
   int x;
   cin >> x;
-  if (x == 7 || x == 5 || x == 3) cout << "Yes" << endl;
-  else cout << "No" << endl;
+  if (x == 7 || x == 5 || x == 3) cout << "YES" << endl;
+  else cout << "NO" << endl;
   return 0;
 }
