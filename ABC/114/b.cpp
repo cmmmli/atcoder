@@ -20,15 +20,21 @@ int dy4[4] = { -1, 0, 0, 1 };
 int dx8[8] = { 0, -1, 1, 0, -1, 1, -1, 1 };
 int dy8[8] = { -1, 0, 0, 1, -1, -1, 1, 1 };
 
-int main() {
-  string s;
-  cin >> s;
+ll n, ans = 0;
 
-  int tmp, res = INF;
-  for (int i = 2; i != s.size(); ++i) {
-    tmp = (s[i - 2] - '0') * 100 + (s[i - 1] - '0') * 10 + (s[i] - '0');
-    res = min(res, abs(tmp - 753));
-  }
-  cout << res << endl;
+void dfs(ll x, bool a, bool b, bool c) {
+  if (x > n) return;
+
+  if (a && b && c) ++ans;
+  dfs(x * 10 + 7, true, b, c);
+  dfs(x * 10 + 5, a, true, c);
+  dfs(x * 10 + 3, a, b, true);
+}
+
+int main() {
+  cin >> n;
+
+  dfs(0, false, false, false);
+  cout << ans << endl;
   return 0;
 }
