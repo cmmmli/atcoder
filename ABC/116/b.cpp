@@ -21,23 +21,14 @@ int dx8[8] = { 0, -1, 1, 0, -1, 1, -1, 1 };
 int dy8[8] = { -1, 0, 0, 1, -1, -1, 1, 1 };
 
 int main() {
-  int s;
+  int s, i = 1;
   cin >> s;
-  vector<int> nums;
-  for (int i = 0; i <= 1000000; ++i) {
-    if (s % 2 == 0) {
-      s /= 2;
-    } else {
-      s = 3 * s + 1;
-    }
+  while (s != 4 && s != 2 && s != 1) {
+    if (s % 2 == 0) s /= 2;
+    else s = 3 * s + 1;
 
-    auto res = find(nums.begin(), nums.end(), s);
-    nums.push_back(s);
-    if (res != nums.end() && nums.size() > 2) {
-      cout << i << endl;
-      return 0;
-    }
+    ++i;
   }
-
+  cout << i + 3 << endl;
   return 0;
 }
