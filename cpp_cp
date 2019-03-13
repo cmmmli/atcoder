@@ -1,0 +1,25 @@
+#! /usr/bin/env ruby
+
+require 'fileutils'
+
+args = ARGV[0].split('/')
+con = args[0]
+num = args[1]
+prob = args[2]
+yes = %w[Y y yes Yes YES]
+dir_path = "./#{con}/#{num}"
+file_path = "#{dir_path}/#{prob}.cpp"
+unless Dir.exist?(dir_path)
+  FileUtils.mkdir_p(dir_path)
+  puts "Made a directory '#{dir_path}'"
+end
+if FileTest.exist?(file_path)
+  puts "Warning: '#{file_path}' is exist. copy continue? [y/N]"
+  str = STDIN.gets.chomp
+  unless yes.include?(str)
+    puts 'Cancel copying'
+    exit
+  end
+end
+FileUtils.cp('test.cpp', file_path)
+puts "copied test.cpp to #{file_path}"
