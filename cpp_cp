@@ -23,5 +23,5 @@ if FileTest.exist?(file_path)
 end
 FileUtils.cp('test.cpp', file_path)
 `git add #{file_path}`
-`git commit -m '[AC] #{file_path}'`
+puts `git commit -m '[AC] #{file_path}'`
 puts "copied test.cpp to #{file_path}, and exec git add and commit"
