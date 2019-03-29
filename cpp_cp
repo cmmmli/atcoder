@@ -7,8 +7,8 @@ con = args[0]
 num = args[1]
 prob = args[2]
 yes = %w[Y y yes Yes YES]
-dir_path = "./#{con}/#{num}"
-file_path = "#{dir_path}/#{prob}.cpp"
+dir_path = "#{con}/#{num}"
+file_path = "#{dir_path}/#{prob.downcase}.cpp"
 unless Dir.exist?(dir_path)
   FileUtils.mkdir_p(dir_path)
   puts "Made a directory '#{dir_path}'"
@@ -22,4 +22,6 @@ if FileTest.exist?(file_path)
   end
 end
 FileUtils.cp('test.cpp', file_path)
-puts "copied test.cpp to #{file_path}"
+`git add #{file_path}`
+`git commit -m '[AC] #{file_path}'`
+puts "copied test.cpp to #{file_path}, and exec git add and commit"
